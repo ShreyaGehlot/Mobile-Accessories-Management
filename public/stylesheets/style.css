@@ -1,0 +1,126 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background-color: rgb(183, 248, 232) ;*/
+   }
+
+
+a {
+  color: #00B7FF;
+}
+
+h1   {color: rgb(2, 2, 15);}
+
+p    {
+    color: rgb(2, 2, 15);
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+}
+
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: rgb(15, 247, 15);
+  color:black;
+}
+
+div.container{
+  width:30%;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid black;
+  /*box-shadow: 2px 2px 15px rgb(146, 247, 154);*/
+  box-shadow: 2px 2px 15px rgb(247, 146, 239);
+  
+  background-color: aliceblue;
+  
+}
+div #add{
+  width:250px;
+  margin: 50px auto 0px auto;
+  padding: 10px auto;
+
+}
+.container{
+  margin:auto;  
+}
+
+.required{
+  color:red;
+}
+
+#btn{
+  /*color: yellow;
+  padding: 16px 20px;
+  margin: auto;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  align-items: center;
+*/
+  background-color:aqua;
+  border: 1px solid rgb(130, 50, 205);
+  border-radius: 4px;
+  margin: 16px 20px;
+cursor: pointer;
+width: 50%;
+opacity: 0.9;
+}
+
+#btn:hover{
+  background-color: rgb(15, 247, 15);
+  color:black;
+}
+#upbtn{
+  background-color:aqua;
+  border: 1px solid rgb(130, 50, 205);
+  border-radius: 4px;
+cursor: pointer;
+width: 50%;
+opacity: 0.9;
+
+}
+#upbtn:hover{
+  background-color: #00B7FF;
+  color: black;
+}
+#delbtn{
+  background-color: red;
+  color: white;
+  border: 1px solid rgb(130, 50, 205);
+  border-radius: 4px;
+cursor: pointer;
+width: 50%;
+opacity: 0.9;
+}
+
+#delbtn:hover{
+  background-color: orange;
+  color: black;
+}
+.pagination{
+  align-items: center;
+}
+.active{
+  color: white;
+}

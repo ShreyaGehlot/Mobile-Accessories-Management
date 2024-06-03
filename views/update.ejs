@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/add">Add</a></li>
+
+      <li><a href="/updateList">Update</a></li>
+
+      <li><a href="/deleteList">Delete</a></li>
+
+      <li><a href="/list">List</a></li>
+
+      <li><a href="/emi">Calculate EMI</a></li>
+    </ul>
+
+    <h1>
+      <b
+        ><center><i>Update Accessories Information</i></center></b
+      >
+    </h1>
+    <div class="container">
+      <form action="/update" method="POST" id="add">
+        <input type="text" name="id" id="id" value="<%= data._id%>" hidden />
+
+        <label for="mtype"
+          ><b>Assesories Name:</b><span class="required">*</span></label
+        ><br />
+        <input
+          type="text"
+          placeholder="e.g.Charger"
+          name="mtype"
+          id="mtype"
+          value="<%= data.mtype%>"
+          required
+        />
+        <br />
+        <br />
+
+        <label for="mname"
+          ><b>Model Name:</b><span class="required">*</span></label
+        ><br />
+        <input
+          type="text"
+          placeholder="e.g.Samsung-Charger"
+          name="mname"
+          id="mname"
+          value="<%= data.mname%>"
+          required
+        />
+        <br />
+        <br />
+
+        <label for="mnumber"
+          ><b>Model Number:</b><span class="required">*</span></label
+        ><br />
+        <input
+          type="text"
+          placeholder="e.g. S123"
+          name="mnumber"
+          id="mnumber"
+          value="<%= data.mnumber %>"
+          required
+        /><br />
+        <br />
+
+        <label for="price"><b>Price:</b><span class="required">*</span></label
+        ><br />
+        <input
+          type="text"
+          placeholder="Enter price"
+          name="price"
+          id="price"
+          value="<%= data.price %>"
+          required
+        /><br />
+        <br />
+
+        <label for="date"
+          ><b>Launch Date:</b><span class="required">*</span></label
+        ><br />
+        <input
+          type="date"
+          placeholder="Enter Launch Date"
+          name="launchdate"
+          id="launchdate"
+          value="<%=data.launchdate.toISOString().substring(0, 10)%>"
+          required
+        /><br />
+        <br />
+        <span class="required">*</span><i>Required</i>
+
+        <button id="btn" type="submit" name="submit" onclick="done()" required>
+          Submit
+        </button>
+      </form>
+    </div>
+    <script>
+      if ("<%=something%>") {
+        alert("<%=something%>" + " model already exist,you cannot update this");
+      }
+      function done() {
+        alert("Updated Successfully!");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+	# version: '1.0' 
+
+services:
+  ejstask:
+    image: ejstask:v1.1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file : 
+      - .env
+    
+    ports:
+      - 3000:3000
+    
+  emicalculator:
+    image: emicalculator:v1.0.0
+    build:
+      context: ../EmiCalculator
+      dockerfile: ./Dockerfile
+    ports:
+      - 5296:5296
+    networks:
+            default:
+                aliases:
+                    - emi.dev
+  
+
+  

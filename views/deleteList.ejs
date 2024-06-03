@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+   </head>
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/add">Add</a></li>
+
+        <li><a href="/updateList">Update</a></li>
+
+        <li><a href="/deleteList">Delete</a></li>
+
+        <li><a href="/list">List</a></li>
+        <li><a href="/emi">Calculate EMI</a></li>
+      </ul>
+  <h1><b><center><i>Delete Mobile Accessories<i></center></b></h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+                <th>Sr. No</th>
+                <th>Accessories Type</th>
+                <th>Model Name</th>
+                <th>Model Number</th>
+                <th>Price</th>
+                <th>Launch Date</th>
+                <th>Click Here</th>
+                
+                
+          </tr>
+        </thead>
+        <tbody>
+          <% if(data.length){ %>
+        
+         <% for(var i = 0; i< data.length; i++) {%>  
+          <tr>
+            <th scope="row"><%= ((current-1)*5+i+1) %></th>
+            <td><%= data[i].mtype%></td>
+            <td><%= data[i].mname%></td>
+            <td><%= data[i].mnumber%></td>
+            <td><%= data[i].price%></td>
+            <td><%= data[i].launchdate.toDateString()%></td>  
+          <td><button type="button" id='delbtn' onclick="del('<%=data[i]._id%>')">Delete</button></td>  
+        </tr>
+          <% } %>
+                  
+           <% }else{ %>
+               <tr>
+                  <td colspan="3">No Mobiles Accessories Here</td>
+               </tr>
+            <% } %>  
+            
+            <% if (pages > 0) { %>
+              <ul class="pagination"> 
+                  <% if (current == 1) { %>
+                       <li class="active"><a>First</a></li>
+                   <% } else { %>
+                       <li><a href="/list">First</a></li>
+                   <% } %>
+                   <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                   <% if (i !== 1) { %>
+                       <li><a>...</a></li>
+                   <% } %>
+                  
+
+                   <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                        <li class="active"><a><%= i %></a></li>
+                    <% } else { %>
+                        <li><a href="/deleteList?page=<%= i %>"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                <% } %>
+                <% if (current == pages) { %>
+                    <li class="disabled"><a>Last</a></li>
+                <% } else { %>
+                    <li><a href="/deleteList?page=<%= pages %>">Last</a></li>
+                <% } %>
+               </ul>
+           <% } %>
+         
+        </tbody>
+        </table>
+        <script>
+          function del(id){
+            if(confirm("Are you want to delete?")){
+              alert("Deleted Successfully");
+              window.location.href = '/delete?id='+id
+            }
+            else{
+              alert("Not Deleted");
+              return;
+            }
+          }
+        
+        </script>
+     
+</body>
+</html>

@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <title>Calculate emi</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/add">Add</a></li>
+
+      <li><a href="/updateList">Update</a></li>
+
+      <li><a href="/deleteList">Delete</a></li>
+
+      <li><a href="/list">List</a></li>
+      <li><a href="/emi">Calculate EMI</a></li>
+    </ul>
+
+    <h1>
+      <b
+        ><center><i>Calculate EMI</i></center></b
+      >
+    </h1>
+    <div class="container">
+
+      <form action="/emi" method="Post" id="emi">
+        <label for="ctype"><b>Currency:</b></label>
+  
+        <select name = "ctype">
+          <option value = "Rupee">₹</option>
+          <option value = "Dollar">$</option>
+               </select><br>
+
+        <label for="amount"><b>Loam Amount:</b></label
+        ><br />
+        <input
+          type="number"
+          placeholder="e.g. 1000000"
+          name="amount"
+          id="amount"
+          value="<%=data.loanAmount ? data.loanAmount:''%>"
+          
+        />
+        <br />
+        <br />
+
+        <label for="interest"><b>Interest:</b></label
+        ><br />
+        <input
+          type="number"
+          
+          placeholder="e.g. 1"
+          name="interest"
+          id="interest"
+          value="<%=data.interest ? data.interest:''%>"
+        />
+        <br />
+        <br />
+        <label for="tenure"><b>Tenure:</b></label
+        ><br />
+        <input
+          type="number"
+          placeholder="e.g. 5"
+          name="tenure"
+        
+          id="tenure"
+          value="<%=data.tenure ? data.tenure:''%>"
+        />years
+        <br />
+        <br />
+
+        <!-- <span class="required">*</span><i>Required</i> -->
+
+        <button id="btn" type="submit" required>Submit</button>
+      </form>
+    </div>
+
+    <!-- <script>
+      
+    </script>-->
+    <%if(data?.body){%>
+        <h3>
+          <b><center>Result</center></b>
+        </h3>
+        <div class="container">
+          <!-- <form action="/emi" method="Post" id="emi">
+            <label for="Success"><b>success:</b></label
+            ><br />
+            <input value="<%=data.success%>" />
+            <br />
+            <br />
+            <label for="message"><b>Message:</b></label
+            ><br />
+            <input value="<%=data.message%>" />
+            <br />
+            <br /> -->
+            <label for="loanAmount"><b>Loam Amount:</b></label><%=data.loanAmountf%><br>
+            <label for="interest"><b>Interest:</b></label><%=data.interest%><br>
+            <label for="tenure"><b>Tenure:</b></label><%=data.tenure%> years<br>
+
+    
+    <label for="loanEmi"><b>Loam Emi:</b></label><%=data.body.loanEmi%><br>
+        
+    <label for="loanAPR"><b>loan APR:</b></labe><%=data.body.loanAPR%><br>
+    
+    <label for="totalInterestPayable"><b>Total Interest Payable:</b></label><%=data.body.totalInterestPayable%><br>
+   
+    <label for="totalPayment"><b>Total Payment:</b></label><%=data.body.totalPayment%>
+
+    
+    <%} else if(err){%>
+       <b><center><p style="color: red;"><%= err %></p> </center></b>
+        <%}%>
+      </form>
+    </div>
+  </body>
+</html>
